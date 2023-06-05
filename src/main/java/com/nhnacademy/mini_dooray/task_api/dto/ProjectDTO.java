@@ -1,11 +1,17 @@
-package com.nhnacademy.mini_dooray.task_api.dto;
+package com.nhnacademy.mini_dooray.task_api.project.dto;
 
-import com.nhnacademy.mini_dooray.task_api.entity.ProjectStatus;
-import com.nhnacademy.mini_dooray.task_api.entity.ProjectStatusName;
 import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class ProjectDTO {
-    private Long accountId;
-    private Integer projectStatusId;
+
+    private String projectName;
+    private String accountId;
+    private Long projectStatusId;
 }

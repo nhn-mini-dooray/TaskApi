@@ -190,3 +190,11 @@ CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`comments`
             ON UPDATE NO ACTION
 )
     ENGINE = InnoDB;
+
+
+
+ALTER TABLE `nhn_academy_43`.`project_status`
+    AUTO_INCREMENT = 1;
+INSERT INTO project_status (`project_status_name`) value ('ACTIVE'), ('INACTIVE'), ('COMPLETE');
+delete from project_status;
+select * from project_status;
