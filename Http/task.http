@@ -1,0 +1,10 @@
+POST http://localhost:9090/projects
+Content-Type: application/json
+
+{
+  "projectName": "게시판 만들기",
+  "accountId": 1,
+  "projectStatusId": 1
+}
+
+###
