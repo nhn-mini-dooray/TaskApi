@@ -1,15 +1,13 @@
-package com.nhnacademy.mini_dooray.task_api.project.entity;
+package com.nhnacademy.mini_dooray.task_api.entity;
 
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "projects")
 public class Project {
@@ -19,13 +17,10 @@ public class Project {
     @Column(name = "project_id")
     private Long projectId;
 
-    @Column(name = "project_name", nullable = false)
-    private String projectName;
+    @Column(name = "account_id")
+    private Long accountId;
 
-    @Column(name = "account_id", nullable = false)
-    private String accountId;
-
-    @Column(name = "project_status_id", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ProjectStatus projectStatus;
+    @ManyToOne
+    @JoinColumn(name = "project_status_id", nullable = false)
+    private ProjectStatus projectStatusId;
 }
