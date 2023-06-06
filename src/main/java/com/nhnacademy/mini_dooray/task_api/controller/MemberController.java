@@ -24,5 +24,9 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdMember);
     }
 
-
+    @GetMapping("/{accountId}")
+    public ResponseEntity<List<ProjectDTO>> getProjectsForMember(@PathVariable Long accountId) {
+        List<ProjectDTO> getProjectsForMember = memberService.getProjectForMember(accountId);
+        return ResponseEntity.ok(getProjectsForMember);
+    }
 }

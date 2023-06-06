@@ -41,4 +41,20 @@ public class MemberService {
                 savedMember.getPk().getProject().getProjectId(),
                 savedMember.getRole().getRoleId());
     }
+
+    public List<ProjectDTO> getProjectForMember(Long accountId) {
+        List<Member> members = memberRepository.findByPkAccountId(accountId);
+
+        List<ProjectDTO> projectDTOs = new ArrayList<>();
+        for (Member member: members) {
+            Project project = member.getPk().getProject();
+            ProjectDTO projectDTO = new ProjectDTO(
+                    project.getProjectName(),
+                    project.getAccountId(),
+                    project.getProjectStatusId().getProjectStatusId()
+            );
+            projectDTOs.add(projectDTO);
+        }
+        return projectDTOs;
+    }
 }
