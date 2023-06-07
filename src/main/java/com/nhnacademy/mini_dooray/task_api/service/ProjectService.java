@@ -1,10 +1,10 @@
 package com.nhnacademy.mini_dooray.task_api.project_member.service;
 
-import com.nhnacademy.mini_dooray.task_api.project_member.dto.ProjectDTO;
-import com.nhnacademy.mini_dooray.task_api.project_member.entity.Project;
-import com.nhnacademy.mini_dooray.task_api.project_member.entity.ProjectStatus;
-import com.nhnacademy.mini_dooray.task_api.project_member.repository.ProjectRepository;
-import com.nhnacademy.mini_dooray.task_api.project_member.repository.ProjectStatusRepository;
+import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
+import com.nhnacademy.mini_dooray.task_api.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.entity.ProjectStatus;
+import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
+import com.nhnacademy.mini_dooray.task_api.repository.ProjectStatusRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
