@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "mile_stone")
+@Table(name = "mile_stones")
 public class MileStone {
 
     @Id
