@@ -1,4 +1,3 @@
-###
 POST http://localhost:9090/milestones
 Content-Type: application/json
 
@@ -11,5 +10,14 @@ Content-Type: application/json
 ###
 
 GET http://localhost:9090/milestones/1
+
+###
+
+PUT http://localhost:9090/milestones/5
+Content-Type: application/json
+
+{
+  "mileStoneStartDate": "2023-06-25"
+}
 
 ###
