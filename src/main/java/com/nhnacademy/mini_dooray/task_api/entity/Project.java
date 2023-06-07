@@ -1,13 +1,10 @@
-package com.nhnacademy.mini_dooray.task_api.project_member.entity;
+package com.nhnacademy.mini_dooray.task_api.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -37,4 +34,9 @@ public class Project {
         this.projectStatusId = projectStatusId;
     }
 
+    public void updateProjectName(String projectName) {
+        if (projectName != null) {
+            this.projectName = projectName;
+        }
+    }
 }
