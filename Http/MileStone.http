@@ -9,3 +9,7 @@ Content-Type: application/json
   "mileStoneEndDate": "2023-06-30"
 }
 ###
+
+GET http://localhost:9090/milestones/1
+
+###
