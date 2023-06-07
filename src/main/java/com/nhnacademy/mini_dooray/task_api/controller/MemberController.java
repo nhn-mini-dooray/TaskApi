@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -26,7 +28,10 @@ public class MemberController {
     @PostMapping
     public ResponseEntity<MemberDTO> createMember(@RequestBody MemberDTO memberDTO) {
         MemberDTO createdMember = memberService.createMember(memberDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdMember);
+        URI location = UriComponentsBuilder.fromPath("/members/{id}")
+                .buildAndExpand(createdMember.getAccountId())
+                .toUri();
+        return ResponseEntity.created(location).body(createdMember);
     }
 
     /**
