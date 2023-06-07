@@ -50,4 +50,16 @@ public class MileStoneController {
         MileStoneDTO updatedMileStoneDTO = mileStoneService.updateMileStone(mileStoneId, mileStoneDTO);
         return ResponseEntity.ok(updatedMileStoneDTO);
     }
+
+    /**
+     * 마일스톤 삭제
+     *
+     * @param mileStoneId
+     * @return
+     */
+    @DeleteMapping("/{mileStoneId}")
+    public ResponseEntity<Void> deleteMileStone(@PathVariable Long mileStoneId) {
+        mileStoneService.deleteMileStone(mileStoneId);
+        return ResponseEntity.noContent().build();
+    }
 }
