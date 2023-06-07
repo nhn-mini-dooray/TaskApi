@@ -7,3 +7,6 @@ Content-Type: application/json
   "projectId": 3,
   "roleId": 1
 }
+
+###
+GET http://localhost:9090/project/members/2
