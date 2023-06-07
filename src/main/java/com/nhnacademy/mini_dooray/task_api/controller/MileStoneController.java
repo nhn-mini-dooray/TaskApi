@@ -17,9 +17,17 @@ public class MileStoneController {
 
     private final MileStoneService mileStoneService;
 
+    /**
+     * 마일스톤 생성
+     *
+     * @param mileStoneDTO
+     * @return
+     */
     @PostMapping
     public ResponseEntity<MileStoneDTO> createMileStone(@RequestBody MileStoneDTO mileStoneDTO) {
         MileStoneDTO createdMileStone = mileStoneService.createMileStone(mileStoneDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdMileStone);
     }
+
+
 }
