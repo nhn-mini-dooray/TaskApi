@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:9090/milestones/1
+GET http://localhost:9090/milestones/5
 
 ###
 
@@ -21,3 +21,5 @@ Content-Type: application/json
 }
 
 ###
+
+DELETE http://localhost:9090/milestones/5
