@@ -1,14 +1,12 @@
-package com.nhnacademy.mini_dooray.task_api.project_member.controller;
+package com.nhnacademy.mini_dooray.task_api.controller;
 
-import com.nhnacademy.mini_dooray.task_api.project_member.dto.ProjectDTO;
-import com.nhnacademy.mini_dooray.task_api.project_member.service.ProjectService;
+import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
+import com.nhnacademy.mini_dooray.task_api.dto.ProjectNameModifyDTO;
+import com.nhnacademy.mini_dooray.task_api.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/projects")
@@ -27,5 +25,20 @@ public class ProjectController {
     public ResponseEntity<ProjectDTO> createProject(@RequestBody ProjectDTO projectDTO) {
         ProjectDTO createdProject = projectService.createProject(projectDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProject);
+    }
+
+    /**
+     * 프로젝트 이름 변경
+     *
+     * @param projectId
+     * @param projectModifyDTO
+     * @return
+     */
+    @PutMapping("/{projectId}/name")
+    public ResponseEntity<ProjectDTO> updateProjectName(
+            @PathVariable("projectId") Long projectId,
+            @RequestBody ProjectNameModifyDTO projectModifyDTO) {
+        ProjectDTO updatedProject = projectService.updateProjectName(projectId, projectModifyDTO.getProjectName());
+        return ResponseEntity.ok(updatedProject);
     }
 }
