@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.task_api.project_member.entity;
+package com.nhnacademy.mini_dooray.task_api.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
