@@ -1,4 +1,4 @@
-POST http://localhost:9090/milestones
+POST http://localhost:8080/milestones
 Content-Type: application/json
 
 {
@@ -9,11 +9,11 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:9090/milestones/5
+GET http://localhost:8080/milestones/5
 
 ###
 
-PUT http://localhost:9090/milestones/5
+PUT http://localhost:8080/milestones/5
 Content-Type: application/json
 
 {
@@ -22,4 +22,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:9090/milestones/5
+DELETE http://localhost:8080/milestones/5
