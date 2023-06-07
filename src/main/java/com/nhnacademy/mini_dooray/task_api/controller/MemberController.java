@@ -1,14 +1,14 @@
 package com.nhnacademy.mini_dooray.task_api.controller;
 
 import com.nhnacademy.mini_dooray.task_api.dto.MemberDTO;
+import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/project/members")
@@ -27,5 +27,17 @@ public class MemberController {
     public ResponseEntity<MemberDTO> createMember(@RequestBody MemberDTO memberDTO) {
         MemberDTO createdMember = memberService.createMember(memberDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdMember);
+    }
+
+    /**
+     * 멤버 아이디를 통해 프로젝트 조회
+     *
+     * @param accountId
+     * @return
+     */
+    @GetMapping("/{accountId}")
+    public ResponseEntity<List<ProjectDTO>> getProjectsForMember(@PathVariable Long accountId) {
+        List<ProjectDTO> getProjectsForMember = memberService.getProjectForMember(accountId);
+        return ResponseEntity.ok(getProjectsForMember);
     }
 }
