@@ -1,5 +1,6 @@
 package com.nhnacademy.mini_dooray.task_api.controller;
 
+import com.nhnacademy.mini_dooray.task_api.dto.MemberDTO;
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectNameModifyDTO;
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectStatusModifyDTO;
@@ -8,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
@@ -56,5 +59,17 @@ public class ProjectController {
             @RequestBody ProjectStatusModifyDTO projectStatusModifyDTO) {
         ProjectDTO modifiedProject = projectService.modifyProjectStatus(projectId, projectStatusModifyDTO);
         return ResponseEntity.ok(modifiedProject);
+    }
+
+    /**
+     * 프로젝트 아이디를 통해 멤버 조회
+     *
+     * @param projectId
+     * @return
+     */
+    @GetMapping("/{projectId}/members")
+    public ResponseEntity<List<MemberDTO>> getMembersForProject(@PathVariable Long projectId) {
+        List<MemberDTO> memberDTOs = projectService.getMembersForProject(projectId);
+        return ResponseEntity.ok(memberDTOs);
     }
 }
