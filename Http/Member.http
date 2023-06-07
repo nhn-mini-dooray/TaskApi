@@ -1,5 +1,5 @@
 ###
-POST http://localhost:9090/project/members
+POST http://localhost:8080/project/members
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:9090/project/members/7
+GET http://localhost:8080/project/members/7
 
 ###
-DELETE http://localhost:9090/project/members/7/3
+DELETE http://localhost:8080/project/members/7/3
