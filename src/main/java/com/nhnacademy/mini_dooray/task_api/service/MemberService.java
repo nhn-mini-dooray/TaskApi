@@ -10,6 +10,7 @@ import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
 import com.nhnacademy.mini_dooray.task_api.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,5 +68,20 @@ public class MemberService {
             projectDTOs.add(projectDTO);
         }
         return projectDTOs;
+    }
+
+    /**
+     * 멤버 삭제
+     *
+     * @param accountId
+     * @param projectId
+     */
+    @Transactional
+    public void deleteMember(Long accountId, Long projectId) {
+        Member.Pk pk = new Member.Pk(accountId, projectRepository.getById(projectId));
+        Member member = memberRepository.findById(pk)
+                .orElseThrow(() -> new IllegalArgumentException("MemberId Not Found"));
+
+        memberRepository.delete(member);
     }
 }
