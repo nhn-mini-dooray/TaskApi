@@ -1,0 +1,11 @@
+###
+POST http://localhost:9090/milestones
+Content-Type: application/json
+
+{
+  "projectId": 1,
+  "mileStoneName": "task API 구현",
+  "mileStoneStartDate": "2023-06-20",
+  "mileStoneEndDate": "2023-06-30"
+}
+###
