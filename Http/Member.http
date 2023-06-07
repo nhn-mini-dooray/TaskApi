@@ -1,0 +1,9 @@
+###
+POST http://localhost:9090/project/members
+Content-Type: application/json
+
+{
+  "accountId": 7,
+  "projectId": 3,
+  "roleId": 1
+}
