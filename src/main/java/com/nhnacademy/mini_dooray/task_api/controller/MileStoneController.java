@@ -38,5 +38,16 @@ public class MileStoneController {
         return ResponseEntity.ok(mileStoneDTO);
     }
 
-
+    /**
+     * 마일스톤 수정
+     *
+     * @param mileStoneId
+     * @param mileStoneDTO
+     * @return
+     */
+    @PutMapping("/{mileStoneId}")
+    public ResponseEntity<MileStoneDTO> updateMileStone(@PathVariable Long mileStoneId, @RequestBody MileStoneDTO mileStoneDTO) {
+        MileStoneDTO updatedMileStoneDTO = mileStoneService.updateMileStone(mileStoneId, mileStoneDTO);
+        return ResponseEntity.ok(updatedMileStoneDTO);
+    }
 }
