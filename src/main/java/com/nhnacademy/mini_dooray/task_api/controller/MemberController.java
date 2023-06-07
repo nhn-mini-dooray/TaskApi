@@ -40,4 +40,17 @@ public class MemberController {
         List<ProjectDTO> getProjectsForMember = memberService.getProjectForMember(accountId);
         return ResponseEntity.ok(getProjectsForMember);
     }
+
+    /**
+     * 멤버 삭제
+     *
+     * @param accountId
+     * @param proejctId
+     * @return
+     */
+    @DeleteMapping("/{accountId}/{proejctId}")
+    public ResponseEntity<Void> deleteMember(@PathVariable Long accountId, @PathVariable Long proejctId) {
+        memberService.deleteMember(accountId, proejctId);
+        return ResponseEntity.noContent().build();
+    }
 }
