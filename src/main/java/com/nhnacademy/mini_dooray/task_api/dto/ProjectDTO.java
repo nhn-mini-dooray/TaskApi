@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.task_api.project_member.dto;
+package com.nhnacademy.mini_dooray.task_api.dto;
 
 import lombok.*;
 
