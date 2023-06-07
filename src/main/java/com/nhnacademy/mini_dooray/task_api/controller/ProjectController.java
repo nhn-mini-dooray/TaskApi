@@ -2,6 +2,7 @@ package com.nhnacademy.mini_dooray.task_api.controller;
 
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectNameModifyDTO;
+import com.nhnacademy.mini_dooray.task_api.dto.ProjectStatusModifyDTO;
 import com.nhnacademy.mini_dooray.task_api.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -40,5 +41,20 @@ public class ProjectController {
             @RequestBody ProjectNameModifyDTO projectModifyDTO) {
         ProjectDTO updatedProject = projectService.updateProjectName(projectId, projectModifyDTO.getProjectName());
         return ResponseEntity.ok(updatedProject);
+    }
+
+    /**
+     * 프로젝트 상태 변경
+     *
+     * @param projectId
+     * @param projectStatusModifyDTO
+     * @return
+     */
+    @PutMapping("/{projectId}/status")
+    public ResponseEntity<ProjectDTO> modifyProjectStatus(
+            @PathVariable Long projectId,
+            @RequestBody ProjectStatusModifyDTO projectStatusModifyDTO) {
+        ProjectDTO modifiedProject = projectService.modifyProjectStatus(projectId, projectStatusModifyDTO);
+        return ResponseEntity.ok(modifiedProject);
     }
 }
