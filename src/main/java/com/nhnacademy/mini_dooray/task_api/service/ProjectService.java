@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.task_api.project_member.service;
+package com.nhnacademy.mini_dooray.task_api.service;
 
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.entity.Project;
@@ -30,5 +30,24 @@ public class ProjectService {
 
         return new ProjectDTO(savedProject.getProjectName(), savedProject.getAccountId(),
                 savedProject.getProjectStatusId().getProjectStatusId());
+    }
+
+    /**
+     * 프로젝트 이름 변경
+     *
+     * @param projectId
+     * @param newProjectName
+     * @return
+     */
+    public ProjectDTO updateProjectName(Long projectId, String newProjectName) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new IllegalArgumentException("해당하는 projectId 없음"));
+
+        project.setProjectName(newProjectName);
+        Project updatedProject = projectRepository.save(project);
+
+        return new ProjectDTO(updatedProject.getProjectName(),
+                updatedProject.getAccountId(),
+                updatedProject.getProjectStatusId().getProjectStatusId());
     }
 }
