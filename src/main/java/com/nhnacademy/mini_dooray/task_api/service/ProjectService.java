@@ -1,6 +1,7 @@
 package com.nhnacademy.mini_dooray.task_api.service;
 
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
+import com.nhnacademy.mini_dooray.task_api.dto.ProjectStatusModifyDTO;
 import com.nhnacademy.mini_dooray.task_api.entity.Project;
 import com.nhnacademy.mini_dooray.task_api.entity.ProjectStatus;
 import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
@@ -49,5 +50,30 @@ public class ProjectService {
         return new ProjectDTO(updatedProject.getProjectName(),
                 updatedProject.getAccountId(),
                 updatedProject.getProjectStatusId().getProjectStatusId());
+    }
+
+    /**
+     * 프로젝트 상태 변경
+     *
+     * @param projectId
+     * @param projectStatusModifyDTO
+     * @return
+     */
+    public ProjectDTO modifyProjectStatus(Long projectId, ProjectStatusModifyDTO projectStatusModifyDTO) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new IllegalArgumentException("Project not found"));
+
+        ProjectStatus newProjectStatus = projectStatusRepository.findById(projectStatusModifyDTO.getProjectStatusId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid project status ID"));
+
+        project.setProjectStatusId(newProjectStatus);
+
+        Project savedProject = projectRepository.save(project);
+
+        return new ProjectDTO(
+                savedProject.getProjectName(),
+                savedProject.getAccountId(),
+                savedProject.getProjectStatusId().getProjectStatusId()
+        );
     }
 }
