@@ -32,4 +32,22 @@ public class MileStoneService {
         return new MileStoneDTO(savedMileStone.getProjectId().getProjectId(),
                 savedMileStone.getMileStoneName(), savedMileStone.getMileStoneStartDate(), savedMileStone.getMileStoneEndDate());
     }
+
+    /**
+     * 마일스톤 조회
+     *
+     * @param mileStoneId
+     * @return
+     */
+    public MileStoneDTO getMileStone(Long mileStoneId) {
+        MileStone mileStone = mileStoneRepository.findById(mileStoneId)
+                .orElseThrow(() -> new IllegalArgumentException("MileStone Not Found"));
+
+        return new MileStoneDTO(
+                mileStone.getProjectId().getProjectId(),
+                mileStone.getMileStoneName(),
+                mileStone.getMileStoneStartDate(),
+                mileStone.getMileStoneEndDate()
+        );
+    }
 }
