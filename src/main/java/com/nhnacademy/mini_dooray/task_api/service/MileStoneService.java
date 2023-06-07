@@ -81,4 +81,16 @@ public class MileStoneService {
                 updatedMileStone.getMileStoneEndDate()
         );
     }
+
+    /**
+     * 마일스톤 삭제
+     *
+     * @param mileStoneId
+     */
+    public void deleteMileStone(Long mileStoneId) {
+        MileStone mileStone = mileStoneRepository.findById(mileStoneId)
+                .orElseThrow(() -> new IllegalArgumentException("MileStone Not Found"));
+
+        mileStoneRepository.delete(mileStone);
+    }
 }
