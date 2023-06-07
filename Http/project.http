@@ -1,5 +1,5 @@
 ###
-POST http://localhost:9090/projects
+POST http://localhost:8080/projects
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:9090/projects/4/name
+PUT http://localhost:8080/projects/4/name
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:9090/projects/4/status
+PUT http://localhost:8080/projects/4/status
 Content-Type: application/json
 
 {
@@ -25,4 +25,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:9090/projects/1/members
+GET http://localhost:8080/projects/1/members
