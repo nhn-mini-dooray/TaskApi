@@ -1,6 +1,7 @@
 package com.nhnacademy.mini_dooray.task_api.service;
 
 import com.nhnacademy.mini_dooray.task_api.dto.MemberDTO;
+import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.entity.Member;
 import com.nhnacademy.mini_dooray.task_api.entity.Project;
 import com.nhnacademy.mini_dooray.task_api.entity.Role;
@@ -9,6 +10,9 @@ import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
 import com.nhnacademy.mini_dooray.task_api.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -41,5 +45,27 @@ public class MemberService {
                 savedMember.getPk().getAccountId(),
                 savedMember.getPk().getProject().getProjectId(),
                 savedMember.getRole().getRoleId());
+    }
+
+    /**
+     * 멤버 아이디를 통해 프로젝트 조회
+     *
+     * @param accountId
+     * @return
+     */
+    public List<ProjectDTO> getProjectForMember(Long accountId) {
+        List<Member> members = memberRepository.findByPkAccountId(accountId);
+
+        List<ProjectDTO> projectDTOs = new ArrayList<>();
+        for (Member member: members) {
+            Project project = member.getPk().getProject();
+            ProjectDTO projectDTO = new ProjectDTO(
+                    project.getProjectName(),
+                    member.getPk().getAccountId(),
+                    project.getProjectStatusId().getProjectStatusId()
+            );
+            projectDTOs.add(projectDTO);
+        }
+        return projectDTOs;
     }
 }
