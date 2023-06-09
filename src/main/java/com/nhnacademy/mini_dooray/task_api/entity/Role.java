@@ -1,6 +1,7 @@
 package com.nhnacademy.mini_dooray.task_api.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 import lombok.*;
 
 @Getter
