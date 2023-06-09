@@ -11,7 +11,6 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -90,12 +89,13 @@ public class ProjectService {
      */
     public List<MemberDTO> getMembersForProject(Long projectId) {
         QMember member = QMember.member;
+        QRole role = QRole.role;
 
         return jpaQueryFactory
                 .select(Projections.constructor(MemberDTO.class,
                         member.pk.accountId,
                         member.pk.project.projectId,
-                        member.role))
+                        role.roleId))
                 .from(member)
                 .where(member.pk.project.projectId.eq(projectId))
                 .fetch();
