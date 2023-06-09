@@ -15,9 +15,9 @@ public class Member {
     @EmbeddedId
     private Pk pk;
 
-
-    @Column(name = "role_id")
-    private  Integer role;
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
 
     @Getter
     @NoArgsConstructor
