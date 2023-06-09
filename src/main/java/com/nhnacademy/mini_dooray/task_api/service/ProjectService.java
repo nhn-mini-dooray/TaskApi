@@ -3,11 +3,11 @@ package com.nhnacademy.mini_dooray.task_api.service;
 import com.nhnacademy.mini_dooray.task_api.dto.MemberDTO;
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectStatusModifyDTO;
-import com.nhnacademy.mini_dooray.task_api.entity.Member;
-import com.nhnacademy.mini_dooray.task_api.entity.Project;
-import com.nhnacademy.mini_dooray.task_api.entity.ProjectStatus;
+import com.nhnacademy.mini_dooray.task_api.entity.*;
 import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
 import com.nhnacademy.mini_dooray.task_api.repository.ProjectStatusRepository;
+import com.querydsl.core.types.Projections;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +19,7 @@ import java.util.List;
 public class ProjectService {
     private final ProjectRepository projectRepository;
     private final ProjectStatusRepository projectStatusRepository;
+    private final JPAQueryFactory jpaQueryFactory;
 
     /**
      * 프로젝트 생성
@@ -88,20 +89,15 @@ public class ProjectService {
      * @return
      */
     public List<MemberDTO> getMembersForProject(Long projectId) {
-        Project project = projectRepository.findById(projectId)
-                .orElseThrow(() -> new IllegalArgumentException("해당하는 projectId 없음"));
+        QMember member = QMember.member;
 
-        List<Member> members = project.getMembers();
-
-        List<MemberDTO> memberDTOs = new ArrayList<>();
-        for (Member member : members) {
-            MemberDTO memberDTO = new MemberDTO(
-                    member.getPk().getAccountId(),
-                    member.getPk().getProject().getProjectId(),
-                    member.getRole()
-            );
-            memberDTOs.add(memberDTO);
-        }
-        return memberDTOs;
+        return jpaQueryFactory
+                .select(Projections.constructor(MemberDTO.class,
+                        member.pk.accountId,
+                        member.pk.project.projectId,
+                        member.role))
+                .from(member)
+                .where(member.pk.project.projectId.eq(projectId))
+                .fetch();
     }
 }
