@@ -1,11 +1,16 @@
 package com.nhnacademy.mini_dooray.task_api.controller;
 
+import com.nhnacademy.mini_dooray.task_api.dto.MemberDTO;
 import com.nhnacademy.mini_dooray.task_api.dto.MileStoneDTO;
 import com.nhnacademy.mini_dooray.task_api.service.MileStoneService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/milestones")
@@ -23,7 +28,10 @@ public class MileStoneController {
     @PostMapping
     public ResponseEntity<MileStoneDTO> createMileStone(@RequestBody MileStoneDTO mileStoneDTO) {
         MileStoneDTO createdMileStone = mileStoneService.createMileStone(mileStoneDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdMileStone);
+        URI location = UriComponentsBuilder.fromPath("/{id}")
+                .buildAndExpand(createdMileStone.getProjectId())
+                .toUri();
+        return ResponseEntity.created(location).body(createdMileStone);
     }
 
     /**
