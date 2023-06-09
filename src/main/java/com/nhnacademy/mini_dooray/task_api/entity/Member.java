@@ -1,6 +1,6 @@
 package com.nhnacademy.mini_dooray.task_api.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -15,9 +15,9 @@ public class Member {
     @EmbeddedId
     private Pk pk;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
-    private Role role;
+
+    @Column(name = "role_id")
+    private  Integer role;
 
     @Getter
     @NoArgsConstructor
