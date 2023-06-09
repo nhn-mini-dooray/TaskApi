@@ -4,13 +4,17 @@ import com.nhnacademy.mini_dooray.task_api.dto.MemberDTO;
 import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.entity.Member;
 import com.nhnacademy.mini_dooray.task_api.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.entity.QMember;
+import com.nhnacademy.mini_dooray.task_api.entity.QProject;
+import com.querydsl.core.types.Projections;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.nhnacademy.mini_dooray.task_api.repository.MemberRepository;
 import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,6 +23,8 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final ProjectRepository projectRepository;
+    private final JPAQueryFactory jpaQueryFactory;
+
     /**
      * 멤버 추가
      *
@@ -49,20 +55,20 @@ public class MemberService {
      * @return
      */
     public List<ProjectDTO> getProjectForMember(Long accountId) {
-        List<Member> members = memberRepository.findByPkAccountId(accountId);
+        QMember member = QMember.member;
+        QProject project = QProject.project;
 
-        List<ProjectDTO> projectDTOs = new ArrayList<>();
-        for (Member member: members) {
-            Project project = member.getPk().getProject();
-            ProjectDTO projectDTO = new ProjectDTO(
-                    project.getProjectName(),
-                    member.getPk().getAccountId(),
-                    project.getProjectStatusId().getProjectStatusId()
-            );
-            projectDTOs.add(projectDTO);
-        }
-        return projectDTOs;
+        return jpaQueryFactory
+                .select(Projections.constructor(ProjectDTO.class,
+                        project.projectName,
+                        member.pk.accountId,
+                        project.projectStatusId.projectStatusId))
+                .from(member)
+                .join(member.pk.project, project)
+                .where(member.pk.accountId.eq(accountId))
+                .fetch();
     }
+
 
     /**
      * 멤버 삭제
