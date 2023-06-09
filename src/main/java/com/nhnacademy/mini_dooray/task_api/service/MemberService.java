@@ -5,6 +5,7 @@ import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.entity.Member;
 import com.nhnacademy.mini_dooray.task_api.entity.Project;
 import com.nhnacademy.mini_dooray.task_api.entity.*;
+import com.nhnacademy.mini_dooray.task_api.repository.RoleRepository;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.nhnacademy.mini_dooray.task_api.repository.MemberRepository;
@@ -21,6 +22,8 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final ProjectRepository projectRepository;
 
+    private final RoleRepository roleRepository;
+
     private final JPAQueryFactory jpaQueryFactory;
 
     /**
@@ -34,9 +37,12 @@ public class MemberService {
         Project project = projectRepository.findById(memberDTO.getProjectId())
                 .orElseThrow(() -> new IllegalArgumentException("projectId Not Found"));
 
+        Role role = roleRepository.findById(memberDTO.getRoleId())
+                .orElseThrow(() -> new IllegalArgumentException("RoleId Not Found"));
+
         Member.Pk pk = new Member.Pk(memberDTO.getAccountId(), project);
 
-        Member member = new Member(pk, memberDTO.getRoleId());
+        Member member = new Member(pk, role);
 
         Member savedMember = memberRepository.save(member);
 
