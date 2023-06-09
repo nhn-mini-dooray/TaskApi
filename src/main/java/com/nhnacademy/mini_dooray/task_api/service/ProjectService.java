@@ -98,7 +98,7 @@ public class ProjectService {
             MemberDTO memberDTO = new MemberDTO(
                     member.getPk().getAccountId(),
                     member.getPk().getProject().getProjectId(),
-                    member.getRole().getRoleId()
+                    member.getRole()
             );
             memberDTOs.add(memberDTO);
         }
