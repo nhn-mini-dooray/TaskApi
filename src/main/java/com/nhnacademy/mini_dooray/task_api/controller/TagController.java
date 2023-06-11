@@ -52,4 +52,17 @@ public class TagController {
         TagDTO updatedTagDTO = tagService.updateTag(tagId, tagDTO);
         return ResponseEntity.ok(updatedTagDTO);
     }
+
+    /**
+     * Tag 삭제
+     *
+     * @param tagId
+     * @return
+     */
+    @DeleteMapping("/{tagId}")
+    public ResponseEntity<Void> deleteTag(@PathVariable Long tagId) {
+        tagService.deleteTag(tagId);
+        return ResponseEntity.noContent().build();
+
+    }
 }
