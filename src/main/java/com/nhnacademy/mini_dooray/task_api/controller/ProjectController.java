@@ -62,7 +62,7 @@ public class ProjectController {
     public ResponseEntity<ProjectDTO> modifyProjectStatus(
             @PathVariable Long projectId,
             @RequestBody ProjectStatusModifyDTO projectStatusModifyDTO) {
-        ProjectDTO modifiedProject = projectService.modifyProjectStatus(projectId, projectStatusModifyDTO);
+        ProjectDTO modifiedProject = projectService.modifyProjectStatus(projectId, projectStatusModifyDTO.getProjectStatusId());
         return ResponseEntity.ok(modifiedProject);
     }
 
