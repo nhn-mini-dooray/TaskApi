@@ -40,4 +40,16 @@ public class TagController {
         List<TagDTO> tagDTOs = tagService.getTagsByProjectId(projectId);
         return ResponseEntity.ok(tagDTOs);
     }
+
+    /**
+     * Tag 수정
+     * @param tagId
+     * @param tagDTO
+     * @return
+     */
+    @PutMapping("/{tagId}")
+    public ResponseEntity<TagDTO> updateTag(@PathVariable Long tagId, @RequestBody TagDTO tagDTO) {
+        TagDTO updatedTagDTO = tagService.updateTag(tagId, tagDTO);
+        return ResponseEntity.ok(updatedTagDTO);
+    }
 }
