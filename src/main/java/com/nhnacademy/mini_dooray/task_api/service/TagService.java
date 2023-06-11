@@ -10,6 +10,7 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -54,5 +55,26 @@ public class TagService {
                 .from(tag)
                 .where(tag.projectId.projectId.eq(projectId))
                 .fetch();
+    }
+
+    /**
+     * Tag 수정
+     *
+     * @param tagId
+     * @param tagDTO
+     * @return
+     */
+    public TagDTO updateTag(Long tagId, TagDTO tagDTO) {
+        Tag tag = tagRepository.findById(tagId)
+                .orElseThrow(() -> new IllegalArgumentException("Tag Not Found"));
+
+        tag.setTagName(tagDTO.getTagName());
+
+        Tag updateTag = tagRepository.save(tag);
+
+        return new TagDTO(
+                updateTag.getProjectId().getProjectId(),
+                updateTag.getTagName()
+        );
     }
 }
