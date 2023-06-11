@@ -12,3 +12,10 @@ GET http://localhost:8080/tags/1
 Content-Type: application/json
 
 ###
+
+PUT http://localhost:8080/tags/1
+Content-Type: application/json
+
+{
+  "tagName": "accountAPI"
+}
