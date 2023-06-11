@@ -9,6 +9,7 @@ import com.nhnacademy.mini_dooray.task_api.repository.ProjectStatusRepository;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -61,14 +62,14 @@ public class ProjectService {
      * 프로젝트 상태 변경
      *
      * @param projectId
-     * @param projectStatusModifyDTO
+     * @param newProejctStatusId
      * @return
      */
-    public ProjectDTO modifyProjectStatus(Long projectId, ProjectStatusModifyDTO projectStatusModifyDTO) {
+    public ProjectDTO modifyProjectStatus(Long projectId, Integer newProejctStatusId) {
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new IllegalArgumentException("Project not found"));
 
-        ProjectStatus newProjectStatus = projectStatusRepository.findById(projectStatusModifyDTO.getProjectStatusId())
+        ProjectStatus newProjectStatus = projectStatusRepository.findById(newProejctStatusId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid project status ID"));
 
         project.setProjectStatusId(newProjectStatus);
