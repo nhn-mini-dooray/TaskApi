@@ -19,3 +19,7 @@ Content-Type: application/json
 {
   "tagName": "accountAPI"
 }
+
+###
+
+DELETE http://localhost:8080/tags/1
