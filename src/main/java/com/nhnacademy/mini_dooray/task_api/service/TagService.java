@@ -77,4 +77,16 @@ public class TagService {
                 updateTag.getTagName()
         );
     }
+
+    /**
+     * Tag 삭제
+     *
+     * @param tagId
+     */
+    public void deleteTag(Long tagId) {
+        Tag tag = tagRepository.findById(tagId)
+                .orElseThrow(() -> new IllegalArgumentException("Tag Not Found"));
+
+        tagRepository.delete(tag);
+    }
 }
