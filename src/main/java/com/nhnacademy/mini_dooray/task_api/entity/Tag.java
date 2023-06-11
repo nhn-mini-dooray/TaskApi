@@ -4,10 +4,12 @@ package com.nhnacademy.mini_dooray.task_api.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table (name = "tags")
