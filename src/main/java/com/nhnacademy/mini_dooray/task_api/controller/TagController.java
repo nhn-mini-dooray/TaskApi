@@ -4,13 +4,11 @@ import com.nhnacademy.mini_dooray.task_api.dto.TagDTO;
 import com.nhnacademy.mini_dooray.task_api.service.TagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/tags")
@@ -30,5 +28,16 @@ public class TagController {
                 .buildAndExpand(createdTag.getTagName())
                 .toUri();
         return ResponseEntity.created(locaion).body(createdTag);
+    }
+
+    /**
+     * projectId로 Tag 조회
+     * @param projectId
+     * @return
+     */
+    @GetMapping("{projectId}")
+    public ResponseEntity<List<TagDTO>> getTagsByProjectId(@PathVariable Long projectId) {
+        List<TagDTO> tagDTOs = tagService.getTagsByProjectId(projectId);
+        return ResponseEntity.ok(tagDTOs);
     }
 }
