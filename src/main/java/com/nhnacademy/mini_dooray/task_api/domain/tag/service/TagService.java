@@ -1,16 +1,15 @@
-package com.nhnacademy.mini_dooray.task_api.service;
+package com.nhnacademy.mini_dooray.task_api.domain.tag.service;
 
-import com.nhnacademy.mini_dooray.task_api.dto.TagDTO;
-import com.nhnacademy.mini_dooray.task_api.entity.Project;
-import com.nhnacademy.mini_dooray.task_api.entity.QTag;
-import com.nhnacademy.mini_dooray.task_api.entity.Tag;
-import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
-import com.nhnacademy.mini_dooray.task_api.repository.TagRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.tag.model.TagDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.domain.tag.entity.QTag;
+import com.nhnacademy.mini_dooray.task_api.domain.tag.entity.Tag;
+import com.nhnacademy.mini_dooray.task_api.domain.project.repository.ProjectRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.tag.repository.TagRepository;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
