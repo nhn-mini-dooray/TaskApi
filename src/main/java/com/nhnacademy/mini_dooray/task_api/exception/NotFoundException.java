@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.account_api.exception;
+package com.nhnacademy.mini_dooray.task_api.exception;
 
 public class NotFoundException extends IllegalArgumentException {
     public NotFoundException() {
