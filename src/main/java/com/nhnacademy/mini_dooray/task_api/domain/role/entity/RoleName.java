@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.task_api.domain.role;
+package com.nhnacademy.mini_dooray.task_api.domain.role.entity;
 
 
 import lombok.RequiredArgsConstructor;
