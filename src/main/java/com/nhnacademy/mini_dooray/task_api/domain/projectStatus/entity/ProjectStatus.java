@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.task_api.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.projectStatus.entity;
 
 import javax.persistence.*;
 
@@ -20,5 +20,4 @@ public class ProjectStatus {
     @Enumerated(EnumType.STRING)
     @Column (name = "project_status_name")
     private ProjectStatusName projectStatusName;
-
 }
