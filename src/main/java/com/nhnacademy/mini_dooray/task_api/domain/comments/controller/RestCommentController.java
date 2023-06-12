@@ -1,8 +1,9 @@
-package com.nhnacademy.mini_dooray.account_api.domain.comments.controller;
+package com.nhnacademy.mini_dooray.task_api.domain.comments.controller;
 
-import com.nhnacademy.mini_dooray.account_api.domain.comments.model.request.CommentRequestDto;
-import com.nhnacademy.mini_dooray.account_api.domain.comments.model.response.CommentResponseDto;
-import com.nhnacademy.mini_dooray.account_api.domain.comments.service.CommentService;
+
+import com.nhnacademy.mini_dooray.task_api.domain.comments.model.request.CommentRequestDto;
+import com.nhnacademy.mini_dooray.task_api.domain.comments.model.response.CommentResponseDto;
+import com.nhnacademy.mini_dooray.task_api.domain.comments.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
