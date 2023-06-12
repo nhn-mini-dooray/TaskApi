@@ -1,8 +1,9 @@
-package com.nhnacademy.mini_dooray.task_api.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.project.entity;
 
 import javax.persistence.*;
 
 import com.nhnacademy.mini_dooray.task_api.domain.member.entity.Member;
+import com.nhnacademy.mini_dooray.task_api.domain.projectStatus.entity.ProjectStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
