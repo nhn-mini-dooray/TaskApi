@@ -1,15 +1,17 @@
-package com.nhnacademy.mini_dooray.task_api.service;
+package com.nhnacademy.mini_dooray.task_api.domain.member.service;
 
-import com.nhnacademy.mini_dooray.task_api.dto.MemberDTO;
-import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
-import com.nhnacademy.mini_dooray.task_api.entity.Member;
-import com.nhnacademy.mini_dooray.task_api.entity.Project;
-import com.nhnacademy.mini_dooray.task_api.entity.*;
-import com.nhnacademy.mini_dooray.task_api.repository.RoleRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.member.entity.QMember;
+import com.nhnacademy.mini_dooray.task_api.domain.member.model.MemberDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.QProject;
+import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.member.entity.Member;
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.domain.role.entity.Role;
+import com.nhnacademy.mini_dooray.task_api.domain.role.repository.RoleRepository;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.nhnacademy.mini_dooray.task_api.repository.MemberRepository;
-import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.member.repository.MemberRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.project.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
