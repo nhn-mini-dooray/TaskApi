@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.task_api.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.projectStatus.entity;
 
 import lombok.RequiredArgsConstructor;
 
