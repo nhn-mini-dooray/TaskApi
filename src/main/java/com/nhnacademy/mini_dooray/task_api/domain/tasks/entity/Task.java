@@ -1,8 +1,10 @@
-package com.nhnacademy.mini_dooray.account_api.domain.tasks.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.tasks.entity;
 
-import com.nhnacademy.mini_dooray.account_api.domain.mile_stones.entity.MileStone;
-import com.nhnacademy.mini_dooray.account_api.domain.project.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.domain.milestone.entity.MileStone;
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -47,5 +49,4 @@ public class Task {
         this.taskName = taskName;
         this.taskContent = taskContent;
     }
-
 }
