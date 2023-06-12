@@ -1,10 +1,11 @@
-package com.nhnacademy.mini_dooray.account_api.domain.tasks.controller;
+package com.nhnacademy.mini_dooray.task_api.domain.tasks.controller;
 
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.model.request.CreateTaskRequestDto;
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.model.request.UpdateTaskRequestDto;
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.model.response.TaskResponseDto;
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.service.TaskService;
-import com.nhnacademy.mini_dooray.account_api.exception.ValidationFailedException;
+
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.model.request.UpdateTaskRequestDto;
+import com.nhnacademy.mini_dooray.task_api.exception.ValidationFailedException;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.model.request.CreateTaskRequestDto;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.model.response.TaskResponseDto;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
