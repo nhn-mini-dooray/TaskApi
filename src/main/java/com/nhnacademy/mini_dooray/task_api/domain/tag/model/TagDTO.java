@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.task_api.dto;
+package com.nhnacademy.mini_dooray.task_api.domain.tag.model;
 
 import lombok.*;
 
