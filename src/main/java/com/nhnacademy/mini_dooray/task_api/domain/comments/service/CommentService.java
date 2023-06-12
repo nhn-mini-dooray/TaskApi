@@ -1,12 +1,13 @@
-package com.nhnacademy.mini_dooray.account_api.domain.comments.service;
+package com.nhnacademy.mini_dooray.task_api.domain.comments.service;
 
-import com.nhnacademy.mini_dooray.account_api.domain.comments.entity.Comment;
-import com.nhnacademy.mini_dooray.account_api.domain.comments.model.request.CommentRequestDto;
-import com.nhnacademy.mini_dooray.account_api.domain.comments.model.response.CommentResponseDto;
-import com.nhnacademy.mini_dooray.account_api.domain.comments.repository.CommentRepository;
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.entity.Task;
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.repository.TaskRepository;
-import com.nhnacademy.mini_dooray.account_api.exception.NotFoundException;
+
+import com.nhnacademy.mini_dooray.task_api.domain.comments.entity.Comment;
+import com.nhnacademy.mini_dooray.task_api.domain.comments.model.request.CommentRequestDto;
+import com.nhnacademy.mini_dooray.task_api.domain.comments.model.response.CommentResponseDto;
+import com.nhnacademy.mini_dooray.task_api.domain.comments.repository.CommentRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.entity.Task;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.repository.TaskRepository;
+import com.nhnacademy.mini_dooray.task_api.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
