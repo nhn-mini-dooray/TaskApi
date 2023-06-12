@@ -1,7 +1,7 @@
-package com.nhnacademy.mini_dooray.account_api.domain.task_tag.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.task_tag.entity;
 
-import com.nhnacademy.mini_dooray.account_api.domain.tags.entity.Tag;
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.entity.Task;
+import com.nhnacademy.mini_dooray.task_api.domain.tag.entity.Tag;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.entity.Task;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -20,6 +20,7 @@ public class TaskTag {
 
     @MapsId("taskId")
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "task_id")
     private Task task;
 
