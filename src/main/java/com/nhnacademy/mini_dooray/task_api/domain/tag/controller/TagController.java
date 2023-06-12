@@ -1,7 +1,7 @@
-package com.nhnacademy.mini_dooray.task_api.controller;
+package com.nhnacademy.mini_dooray.task_api.domain.tag.controller;
 
-import com.nhnacademy.mini_dooray.task_api.dto.TagDTO;
-import com.nhnacademy.mini_dooray.task_api.service.TagService;
+import com.nhnacademy.mini_dooray.task_api.domain.tag.model.TagDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.tag.service.TagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
