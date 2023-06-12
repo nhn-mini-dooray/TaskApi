@@ -1,9 +1,7 @@
-package com.nhnacademy.mini_dooray.task_api.repository;
+package com.nhnacademy.mini_dooray.task_api.domain.tag.repository;
 
-import com.nhnacademy.mini_dooray.task_api.entity.Tag;
+import com.nhnacademy.mini_dooray.task_api.domain.tag.entity.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 public interface TagRepository extends JpaRepository<Tag, Long> {
 }
