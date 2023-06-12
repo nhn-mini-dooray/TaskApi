@@ -1,12 +1,17 @@
-package com.nhnacademy.mini_dooray.task_api.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.tag.entity;
 
 
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -24,7 +29,9 @@ public class Tag {
     @JoinColumn(name = "project_id", nullable = false)
     private Project projectId;
 
-    @Column (name = "tag_name")
+    @NotNull
+    @Length(max = 45)
+    @Column(name = "tag_name")
     private String tagName;
 
     public Tag(Project projectId, String tagName) {
