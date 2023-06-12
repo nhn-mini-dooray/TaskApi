@@ -1,8 +1,9 @@
-package com.nhnacademy.mini_dooray.account_api.advice;
+package com.nhnacademy.mini_dooray.task_api.advice;
 
-import com.nhnacademy.mini_dooray.account_api.advice.error_response.ErrorResponse;
-import com.nhnacademy.mini_dooray.account_api.exception.NotFoundException;
-import com.nhnacademy.mini_dooray.account_api.exception.ValidationFailedException;
+
+import com.nhnacademy.mini_dooray.task_api.advice.error_response.ErrorResponse;
+import com.nhnacademy.mini_dooray.task_api.exception.NotFoundException;
+import com.nhnacademy.mini_dooray.task_api.exception.ValidationFailedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
 @RestControllerAdvice
-public class RestAccountAdvice {
+public class RestCommonAdvice {
 
     @InitBinder
     void initBinder(WebDataBinder binder) {
@@ -31,7 +32,6 @@ public class RestAccountAdvice {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
-    //이게 맞나 싶다.
     @ExceptionHandler(value = {
             EmptyResultDataAccessException.class,
             ValidationFailedException.class})
@@ -43,5 +43,4 @@ public class RestAccountAdvice {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
-
 }
