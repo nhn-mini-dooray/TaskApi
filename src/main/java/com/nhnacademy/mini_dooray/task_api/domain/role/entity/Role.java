@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.task_api.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.role.entity;
 
 import javax.persistence.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @Entity
 @Table(name = "role")
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Role {
 
     @Id
