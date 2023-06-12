@@ -1,6 +1,9 @@
-package com.nhnacademy.mini_dooray.task_api.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.member.entity;
 
 import javax.persistence.*;
+
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.domain.role.entity.Role;
 import lombok.*;
 
 import java.io.Serializable;
