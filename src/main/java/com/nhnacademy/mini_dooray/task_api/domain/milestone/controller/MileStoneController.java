@@ -1,7 +1,7 @@
-package com.nhnacademy.mini_dooray.task_api.controller;
+package com.nhnacademy.mini_dooray.task_api.domain.milestone.controller;
 
-import com.nhnacademy.mini_dooray.task_api.dto.MileStoneDTO;
-import com.nhnacademy.mini_dooray.task_api.service.MileStoneService;
+import com.nhnacademy.mini_dooray.task_api.domain.milestone.model.MileStoneDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.milestone.service.MileStoneService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
