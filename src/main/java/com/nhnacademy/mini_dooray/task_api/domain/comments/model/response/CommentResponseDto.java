@@ -1,11 +1,6 @@
-package com.nhnacademy.mini_dooray.account_api.domain.comments.model.response;
+package com.nhnacademy.mini_dooray.task_api.domain.comments.model.response;
 
-
-import com.nhnacademy.mini_dooray.account_api.domain.comments.entity.Comment;
-import com.nhnacademy.mini_dooray.account_api.domain.comments.model.request.CommentRequestDto;
 import lombok.*;
-
-import java.lang.reflect.Constructor;
 
 @Getter
 @NoArgsConstructor
