@@ -1,5 +1,6 @@
-package com.nhnacademy.mini_dooray.task_api.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.milestone.entity;
 
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
