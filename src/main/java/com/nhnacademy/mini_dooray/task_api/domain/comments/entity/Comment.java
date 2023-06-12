@@ -1,6 +1,6 @@
-package com.nhnacademy.mini_dooray.account_api.domain.comments.entity;
+package com.nhnacademy.mini_dooray.task_api.domain.comments.entity;
 
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.entity.Task;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.entity.Task;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
