@@ -1,8 +1,8 @@
-package com.nhnacademy.mini_dooray.account_api.domain.tasks.model.request;
+package com.nhnacademy.mini_dooray.task_api.domain.tasks.model.request;
 
-import com.nhnacademy.mini_dooray.account_api.domain.mile_stones.entity.MileStone;
-import com.nhnacademy.mini_dooray.account_api.domain.project.entity.Project;
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.entity.Task;
+import com.nhnacademy.mini_dooray.task_api.domain.milestone.entity.MileStone;
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.entity.Task;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
