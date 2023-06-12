@@ -1,12 +1,11 @@
-package com.nhnacademy.mini_dooray.account_api.domain.comments.model.request;
+package com.nhnacademy.mini_dooray.task_api.domain.comments.model.request;
 
-import com.nhnacademy.mini_dooray.account_api.domain.comments.entity.Comment;
-import com.nhnacademy.mini_dooray.account_api.domain.tasks.entity.Task;
+
+import com.nhnacademy.mini_dooray.task_api.domain.comments.entity.Comment;
+import com.nhnacademy.mini_dooray.task_api.domain.tasks.entity.Task;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 @Getter
 @AllArgsConstructor
