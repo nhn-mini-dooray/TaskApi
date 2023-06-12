@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.account_api.advice.error_response;
+package com.nhnacademy.mini_dooray.task_api.advice.error_response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
