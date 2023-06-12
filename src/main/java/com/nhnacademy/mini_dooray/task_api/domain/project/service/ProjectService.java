@@ -1,10 +1,14 @@
-package com.nhnacademy.mini_dooray.task_api.service;
+package com.nhnacademy.mini_dooray.task_api.domain.project.service;
 
 import com.nhnacademy.mini_dooray.task_api.domain.member.model.MemberDTO;
-import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
-import com.nhnacademy.mini_dooray.task_api.entity.*;
-import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
-import com.nhnacademy.mini_dooray.task_api.repository.ProjectStatusRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.projectStatus.entity.ProjectStatus;
+import com.nhnacademy.mini_dooray.task_api.domain.member.entity.QMember;
+import com.nhnacademy.mini_dooray.task_api.domain.role.entity.QRole;
+
+import com.nhnacademy.mini_dooray.task_api.domain.project.repository.ProjectRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.projectStatus.repository.ProjectStatusRepository;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
