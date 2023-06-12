@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.account_api.domain.tasks.model.request;
+package com.nhnacademy.mini_dooray.task_api.domain.tasks.model.request;
 
 import lombok.AccessLevel;
 import lombok.Getter;
