@@ -1,10 +1,10 @@
-package com.nhnacademy.mini_dooray.task_api.controller;
+package com.nhnacademy.mini_dooray.task_api.domain.project.controller;
 
 import com.nhnacademy.mini_dooray.task_api.domain.member.model.MemberDTO;
-import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
-import com.nhnacademy.mini_dooray.task_api.dto.ProjectNameModifyDTO;
-import com.nhnacademy.mini_dooray.task_api.dto.ProjectStatusModifyDTO;
-import com.nhnacademy.mini_dooray.task_api.service.ProjectService;
+import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectNameModifyDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectStatusModifyDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.project.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
