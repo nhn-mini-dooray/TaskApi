@@ -26,7 +26,7 @@ public class Task {
     private Project project;
 
     @Setter
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "mile_stone_id")
     private MileStone mileStone;
 
