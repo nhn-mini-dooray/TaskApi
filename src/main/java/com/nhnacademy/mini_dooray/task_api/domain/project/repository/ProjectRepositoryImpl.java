@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class RepositoryImpl implements ProjectCustomRepository {
+public class ProjectRepositoryImpl implements ProjectRepositoryCustom {
 
     private final JPAQueryFactory jpaQueryFactory;
     @Override
