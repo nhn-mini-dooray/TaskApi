@@ -9,7 +9,11 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:8080/milestones/4
+GET http://localhost:8080/milestones/3
+
+###
+
+GET http://localhost:8080/milestones/projects/1
 
 ###
 
