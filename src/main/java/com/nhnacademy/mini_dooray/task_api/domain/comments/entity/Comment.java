@@ -23,18 +23,15 @@ public class Comment {
     @Column(name = "comment_id")
     private Long commentId;
 
-    @Setter
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "task_id")
     private Task task;
 
-    @Setter
     @NotNull
     @Column(name = "account_id")
     private Long accountId;
 
-    @Setter
     @Length(max = 45)
     @Column(name = "comment_content")
     private String commentContent;
@@ -43,6 +40,10 @@ public class Comment {
         this.commentId = null;
         this.task = task;
         this.accountId = accountId;
+        this.commentContent = commentContent;
+    }
+
+    public void updateComment(String commentContent) {
         this.commentContent = commentContent;
     }
 }
