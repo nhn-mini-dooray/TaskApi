@@ -2,12 +2,14 @@ package com.nhnacademy.mini_dooray.task_api.domain.milestone.controller;
 
 import com.nhnacademy.mini_dooray.task_api.domain.milestone.model.MileStoneDTO;
 import com.nhnacademy.mini_dooray.task_api.domain.milestone.service.MileStoneService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/milestones")
@@ -41,6 +43,18 @@ public class MileStoneController {
     public ResponseEntity<MileStoneDTO> getMileStone(@PathVariable Long mileStoneId) {
         MileStoneDTO mileStoneDTO = mileStoneService.getMileStone(mileStoneId);
         return ResponseEntity.ok(mileStoneDTO);
+    }
+
+    /**
+     * 프로젝트 아이디로 마일스톤 조회
+     *
+     * @param projectId
+     * @return
+     */
+    @GetMapping("/projects/{projectId}")
+    public ResponseEntity<List<MileStoneDTO>> getMileStoneByProjectId(@PathVariable Long projectId) {
+        List<MileStoneDTO> mileStoneDTOs = mileStoneService.getMileStoneByProjectId(projectId);
+        return ResponseEntity.ok(mileStoneDTOs);
     }
 
     /**
