@@ -45,15 +45,7 @@ public class TagService {
      * @return
      */
     public List<TagDTO> getTagsByProjectId(Long projectId) {
-        QTag tag = QTag.tag;
-
-        return jpaQueryFactory
-                .select(Projections.constructor(TagDTO.class,
-                        tag.projectId.projectId,
-                        tag.tagName))
-                .from(tag)
-                .where(tag.projectId.projectId.eq(projectId))
-                .fetch();
+        return tagRepository.getTagsByProjectId(projectId);
     }
 
     /**
