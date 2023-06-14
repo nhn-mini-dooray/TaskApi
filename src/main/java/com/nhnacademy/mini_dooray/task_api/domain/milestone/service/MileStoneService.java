@@ -62,15 +62,9 @@ public class MileStoneService {
         MileStone mileStone = mileStoneRepository.findById(mileStoneId)
                 .orElseThrow(() -> new IllegalArgumentException("MileStone Not Found"));
 
-        if (mileStoneDTO.getMileStoneName() != null) {
-            mileStone.setMileStoneName(mileStoneDTO.getMileStoneName());
-        }
-        if (mileStoneDTO.getMileStoneStartDate() != null) {
-            mileStone.setMileStoneStartDate(mileStoneDTO.getMileStoneStartDate());
-        }
-        if (mileStoneDTO.getMileStoneEndDate() != null) {
-            mileStone.setMileStoneEndDate(mileStoneDTO.getMileStoneEndDate());
-        }
+        mileStone.setMileStoneName(mileStoneDTO.getMileStoneName());
+        mileStone.setMileStoneStartDate(mileStoneDTO.getMileStoneStartDate());
+        mileStone.setMileStoneEndDate(mileStoneDTO.getMileStoneEndDate());
 
         MileStone updatedMileStone = mileStoneRepository.save(mileStone);
 
