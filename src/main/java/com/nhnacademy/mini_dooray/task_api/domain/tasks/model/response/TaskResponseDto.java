@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -21,5 +24,9 @@ public class TaskResponseDto {
                 task.getMileStone().getMileStoneId(), task.getTaskName(), task.getTaskContent());
     }
 
-
+    public static List<TaskResponseDto> fromEntities(List<Task> tasks) {
+        return tasks.stream()
+                .map(TaskResponseDto::fromEntity)
+                .collect(Collectors.toList());
+    }
 }
