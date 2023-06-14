@@ -4,6 +4,6 @@ import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectResponseD
 
 import java.util.List;
 
-public interface ProjectCustomRepository {
+public interface ProjectRepositoryCustom {
     List<ProjectResponseDTO> getProjectForMember(Long accountId);
 }
