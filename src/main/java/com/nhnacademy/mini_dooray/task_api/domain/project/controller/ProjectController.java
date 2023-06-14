@@ -42,7 +42,7 @@ public class ProjectController {
      * @param projectModifyDTO
      * @return
      */
-    @PutMapping("/{projectId}/name")
+    @PatchMapping("/{projectId}/name")
     public ResponseEntity<ProjectDTO> updateProjectName(
             @PathVariable("projectId") Long projectId,
             @RequestBody ProjectNameModifyDTO projectModifyDTO) {
@@ -57,7 +57,7 @@ public class ProjectController {
      * @param projectStatusModifyDTO
      * @return
      */
-    @PutMapping("/{projectId}/status")
+    @PatchMapping("/{projectId}/status")
     public ResponseEntity<ProjectDTO> modifyProjectStatus(
             @PathVariable Long projectId,
             @RequestBody ProjectStatusModifyDTO projectStatusModifyDTO) {
