@@ -34,13 +34,11 @@ public class CommentService {
         Task task = taskRepository.findById(requestDto.getTaskId()).orElseThrow(NotFoundException::new);
 
         Comment comment = CommentRequestDto.toEntity(requestDto,task);
-        commentRepository.save(comment);
     }
 
     public void update(Long id , @NotNull CommentRequestDto requestDto) {
         Comment comment = commentRepository.findById(id).orElseThrow(NotFoundException::new);
         comment.updateComment(requestDto.getCommentContent());
-        commentRepository.save(comment);
     }
 
     public void delete(Long id){
