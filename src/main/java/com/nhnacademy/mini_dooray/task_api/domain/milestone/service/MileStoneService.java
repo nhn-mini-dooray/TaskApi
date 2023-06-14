@@ -8,6 +8,8 @@ import com.nhnacademy.mini_dooray.task_api.domain.project.repository.ProjectRepo
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MileStoneService {
@@ -49,6 +51,16 @@ public class MileStoneService {
                 mileStone.getMileStoneStartDate(),
                 mileStone.getMileStoneEndDate()
         );
+    }
+
+    /**
+     * 프로젝트 아이디로 마일스톤 조회
+     *
+     * @param projectId
+     * @return
+     */
+    public List<MileStoneDTO> getMileStoneByProjectId (Long projectId) {
+        return mileStoneRepository.getMileStoneByProjectId(projectId);
     }
 
     /**
