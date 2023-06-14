@@ -6,6 +6,7 @@ import com.nhnacademy.mini_dooray.task_api.domain.project.entity.QProject;
 import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.domain.member.entity.Member;
 import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectResponseDTO;
 import com.nhnacademy.mini_dooray.task_api.domain.role.entity.Role;
 import com.nhnacademy.mini_dooray.task_api.domain.role.repository.RoleRepository;
 import com.querydsl.core.types.Projections;
@@ -60,19 +61,8 @@ public class MemberService {
      * @param accountId
      * @return
      */
-    public List<ProjectDTO> getProjectForMember(Long accountId) {
-        QMember member = QMember.member;
-        QProject project = QProject.project;
-
-        return jpaQueryFactory
-                .select(Projections.constructor(ProjectDTO.class,
-                        project.projectName,
-                        member.pk.accountId,
-                        project.projectStatusId.projectStatusId))
-                .from(member)
-                .join(member.pk.project, project)
-                .where(member.pk.accountId.eq(accountId))
-                .fetch();
+    public List<ProjectResponseDTO> getProjectForMember(Long accountId) {
+        return projectRepository.getProjectForMember(accountId);
     }
 
     /**
