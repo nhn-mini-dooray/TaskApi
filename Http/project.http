@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/projects/4/name
+PATCH http://localhost:8080/projects/4/name
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8080/projects/4/status
+PATCH http://localhost:8080/projects/4/status
 Content-Type: application/json
 
 {
