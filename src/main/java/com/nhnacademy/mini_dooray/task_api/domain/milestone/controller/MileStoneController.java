@@ -64,7 +64,7 @@ public class MileStoneController {
      * @param mileStoneDTO
      * @return
      */
-    @PutMapping("/{mileStoneId}")
+    @PatchMapping("/{mileStoneId}")
     public ResponseEntity<MileStoneDTO> updateMileStone(@PathVariable Long mileStoneId, @RequestBody MileStoneDTO mileStoneDTO) {
         MileStoneDTO updatedMileStoneDTO = mileStoneService.updateMileStone(mileStoneId, mileStoneDTO);
         return ResponseEntity.ok(updatedMileStoneDTO);
