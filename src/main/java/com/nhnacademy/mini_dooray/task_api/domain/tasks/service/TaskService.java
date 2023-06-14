@@ -12,12 +12,11 @@ import com.nhnacademy.mini_dooray.task_api.domain.tasks.model.request.UpdateTask
 import com.nhnacademy.mini_dooray.task_api.domain.tasks.model.response.TaskResponseDto;
 import com.nhnacademy.mini_dooray.task_api.domain.tasks.repository.TaskRepository;
 import com.nhnacademy.mini_dooray.task_api.exception.NotFoundException;
-import com.nhnacademy.mini_dooray.task_api.domain.tasks.model.request.UpdateTaskRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.Valid;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -39,6 +38,19 @@ public class TaskService {
     public TaskResponseDto select(Long id) {
         Task task = taskRepository.findById(id).orElseThrow(NotFoundException::new);
         return TaskResponseDto.fromEntity(task);
+    }
+
+    /**
+     * 프로젝트 Id로 Task 조회
+     *
+     * @param projectId
+     * @return
+     */
+    public List<TaskResponseDto> getTaskByProjectId (Long projectId) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(NotFoundException::new);
+        List<Task> tasks = taskRepository.findByProject(project);
+        return TaskResponseDto.fromEntities(tasks);
     }
 
     /**
