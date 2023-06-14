@@ -48,7 +48,7 @@ public class RestTaskController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}/update")
+    @PatchMapping("/{id}/update")
     public ResponseEntity<Void> updateTask(@PathVariable(name = "id") Long id,
                                            @Valid @RequestBody UpdateTaskRequestDto requestDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
