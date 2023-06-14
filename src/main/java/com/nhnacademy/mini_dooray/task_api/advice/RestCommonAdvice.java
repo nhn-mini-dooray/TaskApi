@@ -17,25 +17,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class RestCommonAdvice {
 
-    @InitBinder
-    void initBinder(WebDataBinder binder) {
-        binder.initDirectFieldAccess();
-    }
-
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorResponse> NotFoundExceptionHandler(NotFoundException exception) {
-        log.info("advice_Error_Message: {}", exception.getMessage(), exception);
-
-        ErrorResponse response =
-                new ErrorResponse(exception.getMessage(), HttpStatus.BAD_REQUEST.value(), "Bad request");
-
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
-    }
-
     @ExceptionHandler(value = {
+            NotFoundException.class,
             EmptyResultDataAccessException.class,
             ValidationFailedException.class})
-    public ResponseEntity<ErrorResponse> EmptyResultDataAccessExceptionHandler(EmptyResultDataAccessException exception) {
+    public ResponseEntity<ErrorResponse> BadRequestExceptionHandler(Exception exception) {
         log.info("advice_Error_Message: {}", exception.getMessage(), exception);
 
         ErrorResponse response =
