@@ -11,7 +11,6 @@ import java.time.LocalDate;
 
 
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "mile_stones")
@@ -26,12 +25,15 @@ public class MileStone {
     @JoinColumn(name = "project_id", nullable = false)
     private Project projectId;
 
+    @Setter
     @Column(name = "mile_stone_name")
     private String mileStoneName;
 
+    @Setter
     @Column(name = "mile_stone_start_date")
     private LocalDate mileStoneStartDate;
 
+    @Setter
     @Column(name = "mile_stone_end_date")
     private LocalDate mileStoneEndDate;
 
