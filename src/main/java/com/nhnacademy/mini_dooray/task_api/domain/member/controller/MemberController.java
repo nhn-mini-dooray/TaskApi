@@ -3,6 +3,7 @@ package com.nhnacademy.mini_dooray.task_api.domain.member.controller;
 import com.nhnacademy.mini_dooray.task_api.domain.member.model.MemberDTO;
 import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.domain.member.service.MemberService;
+import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,8 +41,8 @@ public class MemberController {
      * @return
      */
     @GetMapping("/{accountId}")
-    public ResponseEntity<List<ProjectDTO>> getProjectsForMember(@PathVariable Long accountId) {
-        List<ProjectDTO> getProjectsForMember = memberService.getProjectForMember(accountId);
+    public ResponseEntity<List<ProjectResponseDTO>> getProjectsForMember(@PathVariable Long accountId) {
+        List<ProjectResponseDTO> getProjectsForMember = memberService.getProjectForMember(accountId);
         return ResponseEntity.ok(getProjectsForMember);
     }
 
