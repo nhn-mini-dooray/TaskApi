@@ -50,12 +50,12 @@ public class MemberController {
      * 멤버 삭제
      *
      * @param accountId
-     * @param proejctId
+     * @param projectId
      * @return
      */
     @DeleteMapping("/members/{projectId}/{accountId}")
-    public ResponseEntity<Void> deleteMember(@PathVariable Long accountId, @PathVariable Long proejctId) {
-        memberService.deleteMember(accountId, proejctId);
+    public ResponseEntity<Void> deleteMember(@PathVariable Long accountId, @PathVariable Long projectId) {
+        memberService.deleteMember(accountId, projectId);
         return ResponseEntity.noContent().build();
     }
 }
