@@ -47,7 +47,7 @@ public class TagController {
      * @param tagDTO
      * @return
      */
-    @PutMapping("/{tagId}")
+    @PatchMapping("/{tagId}")
     public ResponseEntity<TagDTO> updateTag(@PathVariable Long tagId, @RequestBody TagDTO tagDTO) {
         TagDTO updatedTagDTO = tagService.updateTag(tagId, tagDTO);
         return ResponseEntity.ok(updatedTagDTO);
