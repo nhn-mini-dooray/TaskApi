@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,6 +28,11 @@ public class RestTaskController {
 
         return ResponseEntity
                 .ok(responseDto);
+    }
+
+    @GetMapping("/project/{projectId}")
+    public List<TaskResponseDto> getTaskByProjectId(@PathVariable Long projectId) {
+        return taskService.getTaskByProjectId(projectId);
     }
 
     @PostMapping("/create")
