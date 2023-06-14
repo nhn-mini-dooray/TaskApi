@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/project/members")
+@RequestMapping("/projects")
 @RequiredArgsConstructor
 public class MemberController {
 
@@ -25,7 +25,7 @@ public class MemberController {
      * @param memberDTO
      * @return
      */
-    @PostMapping
+    @PostMapping("/members")
     public ResponseEntity<MemberDTO> createMember(@RequestBody MemberDTO memberDTO) {
         MemberDTO createdMember = memberService.createMember(memberDTO);
         URI location = UriComponentsBuilder.fromPath("/members/{id}")
@@ -53,7 +53,7 @@ public class MemberController {
      * @param proejctId
      * @return
      */
-    @DeleteMapping("/{accountId}/{proejctId}")
+    @DeleteMapping("/members/{projectId}/{accountId}")
     public ResponseEntity<Void> deleteMember(@PathVariable Long accountId, @PathVariable Long proejctId) {
         memberService.deleteMember(accountId, proejctId);
         return ResponseEntity.noContent().build();
