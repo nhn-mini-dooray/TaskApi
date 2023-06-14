@@ -17,7 +17,7 @@ GET http://localhost:8080/milestones/projects/1
 
 ###
 
-PUT http://localhost:8080/milestones/4
+PATCH http://localhost:8080/milestones/4
 Content-Type: application/json
 
 {
