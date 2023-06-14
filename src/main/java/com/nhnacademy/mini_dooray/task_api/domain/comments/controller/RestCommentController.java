@@ -31,7 +31,7 @@ public class RestCommentController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("{id}/update")
+    @PatchMapping("{id}/update")
     public ResponseEntity<Void> updateCommentHandler(@PathVariable(name = "id") Long id,
                                                      @Valid @RequestBody CommentRequestDto requestDto){
         commentService.update(id,requestDto);
