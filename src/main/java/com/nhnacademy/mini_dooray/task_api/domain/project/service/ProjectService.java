@@ -1,6 +1,7 @@
 package com.nhnacademy.mini_dooray.task_api.domain.project.service;
 
 import com.nhnacademy.mini_dooray.task_api.domain.member.model.MemberDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.member.repository.MemberRepository;
 import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
 import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectDTO;
 import com.nhnacademy.mini_dooray.task_api.domain.projectStatus.entity.ProjectStatus;
@@ -20,6 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProjectService {
     private final ProjectRepository projectRepository;
+    private final MemberRepository memberRepository;
     private final ProjectStatusRepository projectStatusRepository;
     private final JPAQueryFactory jpaQueryFactory;
 
@@ -91,16 +93,6 @@ public class ProjectService {
      * @return
      */
     public List<MemberDTO> getMembersForProject(Long projectId) {
-        QMember member = QMember.member;
-        QRole role = QRole.role;
-
-        return jpaQueryFactory
-                .select(Projections.constructor(MemberDTO.class,
-                        member.pk.accountId,
-                        member.pk.project.projectId,
-                        role.roleId))
-                .from(member)
-                .where(member.pk.project.projectId.eq(projectId))
-                .fetch();
+        return memberRepository.getMembersForProject(projectId);
     }
 }
