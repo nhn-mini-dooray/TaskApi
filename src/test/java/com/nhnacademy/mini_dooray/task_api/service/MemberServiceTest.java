@@ -85,20 +85,14 @@ class MemberServiceTest {
 
     @Test
     void testGetProjectForMember() {
-        QMember member = QMember.member;
-        QProject project = QProject.project;
-
         Long accountId = 1L;
-        ProjectDTO project1 = new ProjectDTO("Project 1", accountId, 1);
-        ProjectDTO project2 = new ProjectDTO("Project 2", accountId, 2);
-        List<ProjectDTO> expectedProjects = Arrays.asList(project1, project2);
 
-        JPAQuery<ProjectResponseDTO> jpaQuery = Mockito.mock(JPAQuery.class);
-        when(jpaQueryFactory.select(any(ConstructorExpression.class))).thenReturn(jpaQuery);
-        when(jpaQuery.from(member)).thenReturn(jpaQuery);
-        when(jpaQuery.join(member.pk.project, project)).thenReturn(jpaQuery);
-        when(jpaQuery.where(member.pk.accountId.eq(accountId))).thenReturn(jpaQuery);
-        when(jpaQuery.fetch()).thenReturn(expectedProjects);
+        List<ProjectResponseDTO> expectedProjects = Arrays.asList(
+                new ProjectResponseDTO(1L, "Project 1", ProjectStatusName.ACTIVE),
+                new ProjectResponseDTO(2L, "Project 2", ProjectStatusName.INACTIVE)
+        );
+
+        when(projectRepository.getProjectForMember(accountId)).thenReturn(expectedProjects);
 
         List<ProjectResponseDTO> projects = memberService.getProjectForMember(accountId);
 
