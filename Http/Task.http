@@ -1,0 +1,35 @@
+GET http://localhost:8080/task/1/select
+Content-Type: application/json
+
+###
+GET http://localhost:8080/task/project/1
+Content-Type: application/json
+
+###
+POST http://localhost:8080/task/create
+Content-Type: application/json
+
+{
+  "projectId" : 1,
+  "mileStoneId" : 2,
+  "name" : "Task의 제목이 적혀있어요.",
+  "content" : "내용이 적혀 있어요."
+}
+
+###
+PATCH http://localhost:8080/task/1/update
+Content-Type: application/json
+
+{
+  "projectId" : 2,
+  "mileStoneId" : 3,
+  "name" : "Task의 제목이 적혀있어요.",
+  "content" : "내용이 적혀 있어요."
+}
+
+###
+DELETE http://localhost:8080/task/1/delete
+
+
+
+

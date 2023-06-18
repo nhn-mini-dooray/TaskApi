@@ -1,0 +1,134 @@
+CREATE SCHEMA IF NOT EXISTS `nhn_academy_43` DEFAULT CHARACTER SET utf8;
+USE `nhn_academy_43`;
+
+
+drop table if exists `nhn_academy_43`.`comments`;
+drop table if exists `nhn_academy_43`.`task_tag`;
+drop table if exists `nhn_academy_43`.`tags`;
+drop table if exists `nhn_academy_43`.`tasks`;
+drop table if exists `nhn_academy_43`.`mile_stones`;
+drop table if exists `nhn_academy_43`.`members`;
+drop table if exists `nhn_academy_43`.`role`;
+drop table if exists `nhn_academy_43`.`projects`;
+drop table if exists `nhn_academy_43`.`project_status`;
+
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`project_status`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`project_status`
+(
+    `project_status_id`   INT         NOT NULL AUTO_INCREMENT,
+    `project_status_name` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`project_status_id`)
+    )
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`projects`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`projects`
+(
+    `project_id`        BIGINT NOT NULL AUTO_INCREMENT,
+    `project_name`      VARCHAR(200) NOT NULL,
+    `account_id`        BIGINT NOT NULL,
+    `project_status_id` INT    NOT NULL,
+    PRIMARY KEY (`project_id`)
+    )
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`role`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`role`
+(
+    `role_id`   INT         NOT NULL AUTO_INCREMENT,
+    `role_name` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`role_id`)
+    )
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`members`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`members`
+(
+    `account_id`   BIGINT NOT NULL,
+    `project_id`   BIGINT NOT NULL,
+    `role_id` INT    NOT NULL,
+    PRIMARY KEY (`account_id`, `project_id`)
+    )
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`mile_stones`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`mile_stones`
+(
+    `mile_stone_id`         BIGINT      NOT NULL AUTO_INCREMENT,
+    `project_id`            BIGINT      NOT NULL,
+    `mile_stone_name`       VARCHAR(45) NOT NULL,
+    `mile_stone_start_date` DATE        NULL,
+    `mile_stone_end_date`   DATE        NULL,
+    PRIMARY KEY (`mile_stone_id`)
+    )
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`tasks`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`tasks`
+(
+    `task_id`       BIGINT       NOT NULL AUTO_INCREMENT,
+    `project_id`    BIGINT       NOT NULL,
+    `mile_stone_id` BIGINT       NOT NULL,
+    `task_name`     VARCHAR(45)  NOT NULL,
+    `task_content`  VARCHAR(200) NOT NULL,
+    PRIMARY KEY (`task_id`)
+    )
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`tags`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`tags`
+(
+    `tag_id`     BIGINT      NOT NULL AUTO_INCREMENT,
+    `project_id` BIGINT      NOT NULL,
+    `tag_name`   VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`tag_id`)
+    )
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`task_tag`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`task_tag`
+(
+    `task_id` BIGINT NOT NULL,
+    `tag_id`  BIGINT NOT NULL,
+    PRIMARY KEY (`task_id`, `tag_id`)
+    )
+    ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mini_dooray_task`.`comments`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `nhn_academy_43`.`comments`
+(
+    `comment_id`      BIGINT NOT NULL AUTO_INCREMENT,
+    `task_id`         BIGINT      NOT NULL,
+    `account_id`      BIGINT      NOT NULL,
+    `comment_content` VARCHAR(45) NULL,
+    PRIMARY KEY (`comment_id`)
+    )
+    ENGINE = InnoDB;

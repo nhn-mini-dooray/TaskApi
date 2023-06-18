@@ -1,0 +1,15 @@
+###
+POST http://localhost:8080/projects/members
+Content-Type: application/json
+
+{
+  "accountId": 7,
+  "projectId": 3,
+  "roleId": 1
+}
+
+###
+GET http://localhost:8080/projects/7
+
+###
+DELETE http://localhost:8080/projects/members/3/7

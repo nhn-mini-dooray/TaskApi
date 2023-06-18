@@ -1,0 +1,31 @@
+POST http://localhost:8080/milestones
+Content-Type: application/json
+
+{
+  "projectId": 1,
+  "mileStoneName": "task API 구현",
+  "mileStoneStartDate": "2023-06-20",
+  "mileStoneEndDate": "2023-06-30"
+}
+###
+
+GET http://localhost:8080/milestones/3
+
+###
+
+GET http://localhost:8080/milestones/projects/1
+
+###
+
+PATCH http://localhost:8080/milestones/4
+Content-Type: application/json
+
+{
+  "mileStoneName": "task API 구현",
+  "mileStoneStartDate": "2023-06-25",
+  "mileStoneEndDate": "2023-06-30"
+}
+
+###
+
+DELETE http://localhost:8080/milestones/5

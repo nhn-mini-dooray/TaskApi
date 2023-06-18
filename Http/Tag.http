@@ -1,0 +1,25 @@
+###
+POST http://localhost:8080/tags
+Content-Type: application/json
+
+{
+  "projectId": 1,
+  "tagName": "TaskAPI"
+}
+###
+
+GET http://localhost:8080/tags/1
+Content-Type: application/json
+
+###
+
+PATCH http://localhost:8080/tags/1
+Content-Type: application/json
+
+{
+  "tagName": "accountAPI"
+}
+
+###
+
+DELETE http://localhost:8080/tags/1
