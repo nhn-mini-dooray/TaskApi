@@ -37,7 +37,6 @@ public class Comment {
     private String commentContent;
 
     public Comment(Task task, Long accountId, String commentContent) {
-        this.commentId = null;
         this.task = task;
         this.accountId = accountId;
         this.commentContent = commentContent;
