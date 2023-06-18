@@ -1,13 +1,15 @@
 package com.nhnacademy.mini_dooray.task_api.service;
 
-import com.nhnacademy.mini_dooray.task_api.dto.MemberDTO;
-import com.nhnacademy.mini_dooray.task_api.dto.ProjectDTO;
-import com.nhnacademy.mini_dooray.task_api.entity.*;
-import com.nhnacademy.mini_dooray.task_api.repository.ProjectRepository;
-import com.nhnacademy.mini_dooray.task_api.repository.ProjectStatusRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.member.model.MemberDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.project.entity.Project;
+import com.nhnacademy.mini_dooray.task_api.domain.project.model.ProjectDTO;
+import com.nhnacademy.mini_dooray.task_api.domain.project.service.ProjectService;
+import com.nhnacademy.mini_dooray.task_api.domain.projectStatus.entity.ProjectStatus;
+import com.nhnacademy.mini_dooray.task_api.domain.projectStatus.entity.ProjectStatusName;
+import com.nhnacademy.mini_dooray.task_api.domain.member.entity.QMember;
+import com.nhnacademy.mini_dooray.task_api.domain.project.repository.ProjectRepository;
+import com.nhnacademy.mini_dooray.task_api.domain.projectStatus.repository.ProjectStatusRepository;
 import com.querydsl.core.types.ConstructorExpression;
-import com.querydsl.core.types.Projections;
-import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.junit.jupiter.api.Test;
@@ -100,7 +102,6 @@ class ProjectServiceTest {
     void testGetMembersForProject() {
 
         QMember member = QMember.member;
-        QRole role = QRole.role;
 
         Long projectId = 1L;
         MemberDTO member1 = new MemberDTO(1L, 1L, 1);
